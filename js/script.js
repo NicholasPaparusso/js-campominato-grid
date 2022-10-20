@@ -17,7 +17,6 @@ Aggiungere una select accanto al bottone di generazione, che fornisca una scelta
 const btn = document.querySelector('.btn');
 const row = document.querySelector('.row-square');
 let diff;
-let validator;
 // dichiaro le variabili globali
 
 
@@ -26,16 +25,8 @@ let validator;
 
 //eventListner al bottone di avvio
 btn.addEventListener('click', function(){
-  let validator = false;
-  
-  if(validator===false){
-    init();
-    validator=true;
-  }else{
-    row.innerHTML="";
-    init()
-    validator=false;
-  }
+  row.innerHTML = '';
+  init();
 })
 
 // creo le funzioni
@@ -64,10 +55,9 @@ function createSquare(difficult){
     square.addEventListener('click', thisCell)
   }
 }
- console.log(diff);
+
 //3-Funzione per calcolare la grandezza dei quadrati
 function squareSize(){
-  console.log(diff);
   return `calc(100% / ${ Math.sqrt(diff)})`;
 }
 
