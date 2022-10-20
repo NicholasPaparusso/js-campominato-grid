@@ -73,3 +73,8 @@ select{
   background-color: white;
   border: 1px solid black;
 }
+
+.blue{
+  background-color: blue;
+  color: white;
+}

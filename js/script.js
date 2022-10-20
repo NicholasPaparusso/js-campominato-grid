@@ -17,6 +17,7 @@ Aggiungere una select accanto al bottone di generazione, che fornisca una scelta
 const btn = document.querySelector('.btn');
 const row = document.querySelector('.row-square');
 let diff;
+let validator;
 // dichiaro le variabili globali
 
 
@@ -27,7 +28,7 @@ let diff;
 btn.addEventListener('click', function(){
   let validator = false;
   
-  if(!validator){
+  if(validator===false){
     init();
     validator=true;
   }else{
@@ -57,11 +58,10 @@ function createSquare(difficult){
     let square = document.createElement('div')
     square.classList.add('square');
     square.innerHTML = [i+1];
-
     row.append(square);
-
     square.style.width = squareSize();
     square.style.height = squareSize();
+    square.addEventListener('click', thisCell)
   }
 }
  console.log(diff);
@@ -71,7 +71,11 @@ function squareSize(){
   return `calc(100% / ${ Math.sqrt(diff)})`;
 }
 
-
+//4 Funzione per Colorare le celle al click e restituire un valore numerico
+function thisCell(){
+  this.classList.add('blue');
+  console.log(this.innerHTML)
+}
 
 
 
